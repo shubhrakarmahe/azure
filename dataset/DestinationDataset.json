@@ -1,0 +1,102 @@
+{
+	"name": "DestinationDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "station_name",
+				"type": "varchar"
+			},
+			{
+				"name": "measurement_timestamp",
+				"type": "varchar"
+			},
+			{
+				"name": "air_temperature",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "wet_bulb_temperature",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "humidity",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "rain_intensity",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "interval_rain",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "total_rain",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "precipitation_type",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "wind_direction",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "wind_speed",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "maximum_wind_speed",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "barometric_pressure",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "solar_radiation",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "heading",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "battery_life",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "measurement_timestamp_label",
+				"type": "varchar"
+			},
+			{
+				"name": "measurement_id",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[stg_chicago_weather]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

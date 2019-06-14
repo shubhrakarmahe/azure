@@ -1,0 +1,96 @@
+{
+	"name": "SourceDataset_8q1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_ls",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "lu4920j2qy43.csv",
+				"container": "cognizant"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Station Name",
+				"type": "String"
+			},
+			{
+				"name": "Measurement Timestamp",
+				"type": "String"
+			},
+			{
+				"name": "Air Temperature",
+				"type": "String"
+			},
+			{
+				"name": "Wet Bulb Temperature",
+				"type": "String"
+			},
+			{
+				"name": "Humidity",
+				"type": "String"
+			},
+			{
+				"name": "Rain Intensity",
+				"type": "String"
+			},
+			{
+				"name": "Interval Rain",
+				"type": "String"
+			},
+			{
+				"name": "Total Rain",
+				"type": "String"
+			},
+			{
+				"name": "Precipitation Type",
+				"type": "String"
+			},
+			{
+				"name": "Wind Direction",
+				"type": "String"
+			},
+			{
+				"name": "Wind Speed",
+				"type": "String"
+			},
+			{
+				"name": "Maximum Wind Speed",
+				"type": "String"
+			},
+			{
+				"name": "Barometric Pressure",
+				"type": "String"
+			},
+			{
+				"name": "Solar Radiation",
+				"type": "String"
+			},
+			{
+				"name": "Heading",
+				"type": "String"
+			},
+			{
+				"name": "Battery Life",
+				"type": "String"
+			},
+			{
+				"name": "Measurement Timestamp Label",
+				"type": "String"
+			},
+			{
+				"name": "Measurement ID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,271 @@
+{
+	"name": "CopyPipeline_1",
+	"properties": {
+		"description": "To copy data from BLOB to SQL DB.",
+		"activities": [
+			{
+				"name": "Copy_Pipeline",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[chicago_weather]"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSetting",
+							"recursive": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSetting",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table [dbo].[stg_chicago_weather];"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Station Name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "station_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Measurement Timestamp",
+									"type": "String"
+								},
+								"sink": {
+									"name": "measurement_timestamp",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Air Temperature",
+									"type": "String"
+								},
+								"sink": {
+									"name": "air_temperature",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Wet Bulb Temperature",
+									"type": "String"
+								},
+								"sink": {
+									"name": "wet_bulb_temperature",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Humidity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "humidity",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"name": "Rain Intensity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "rain_intensity",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Interval Rain",
+									"type": "String"
+								},
+								"sink": {
+									"name": "interval_rain",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Total Rain",
+									"type": "String"
+								},
+								"sink": {
+									"name": "total_rain",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Precipitation Type",
+									"type": "String"
+								},
+								"sink": {
+									"name": "precipitation_type",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"name": "Wind Direction",
+									"type": "String"
+								},
+								"sink": {
+									"name": "wind_direction",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Wind Speed",
+									"type": "String"
+								},
+								"sink": {
+									"name": "wind_speed",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Maximum Wind Speed",
+									"type": "String"
+								},
+								"sink": {
+									"name": "maximum_wind_speed",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Barometric Pressure",
+									"type": "String"
+								},
+								"sink": {
+									"name": "barometric_pressure",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Solar Radiation",
+									"type": "String"
+								},
+								"sink": {
+									"name": "solar_radiation",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Heading",
+									"type": "String"
+								},
+								"sink": {
+									"name": "heading",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Battery Life",
+									"type": "String"
+								},
+								"sink": {
+									"name": "battery_life",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "Measurement Timestamp Label",
+									"type": "String"
+								},
+								"sink": {
+									"name": "measurement_timestamp_label",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Measurement ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "measurement_id",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_8q1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Stored Procedure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_Pipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[SP_CHICAGO_WEATHER]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
