@@ -1,4 +1,4 @@
-Azure Stack Ideathon
+Azure Stack Ideathon by Cognizant and Techgig.
 
 Azure is a comprehensive set of cloud services that developers and IT professionals use to build, deploy   and   manage   applications   through the global   network   of   datacenters.   Integrated   tools, DevOps and a marketplace support you in efficiently building anything from simple mobile apps to internet­scale solutions.
 
