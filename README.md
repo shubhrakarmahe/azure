@@ -1,4 +1,5 @@
 Azure Stack Ideathon
+
 Azure is a comprehensive set of cloud services that developers and IT professionals use to build, deploy   and   manage   applications   through the global   network   of   datacenters.   Integrated   tools, DevOps and a marketplace support you in efficiently building anything from simple mobile apps to internet­scale solutions.
 
 Microsoft has leveraged its constantly expanding worldwide network of data centers to create Azure, a cloud platform for building, deploying, and managing services and applications, anywhere. 
