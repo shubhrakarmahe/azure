@@ -7,6 +7,7 @@ Microsoft has leveraged its constantly expanding worldwide network of data cente
 Azure   lets   you   add   cloud   capabilities   to   your   existing   network   through   its   platform   as   a service(PaaS) model, or entrust Microsoft with all of your computing and network needs with Infrastructure as a Service (IaaS). Either option provides secure, reliable access to your cloud hosted data—one built on Microsoft’s proven architecture. Azure provides an ever expanding array of products and services designed to meet all your needs through one convenient, easy to manage platform. 
 
 Use case :
+
 The Chicago Park District maintains weather sensors at beaches along Chicago's Lake Michigan lakefront. These sensors generally capture the indicated measurements hourly while the sensors are in operation during the summer. Company CloudHub captures this sensors data and uses the same for weather predictions and other analytics. Build a cloud ecosystem in Azure to process the data and create rich visuals for analytics.
 
 Exercise 1: Setup the Lab Environment 
